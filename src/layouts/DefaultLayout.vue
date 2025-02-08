@@ -2,7 +2,7 @@
   <div>
     <AppHeader />
 
-    <main>
+    <main class="main">
       <slot />
     </main>
   </div>
@@ -11,3 +11,9 @@
 <script setup lang="ts">
 import AppHeader from '@/components/header/AppHeader.vue'
 </script>
+
+<style scoped>
+.main {
+  padding: 15px 40px;
+}
+</style>

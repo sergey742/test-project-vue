@@ -1,21 +1,30 @@
 <template>
   <header class="header">
-    <h1>Page Title</h1>
+    <h1
+      contenteditable
+      @input="updateTranslation('header.appTitle', $event)"
+    >
+      {{ t('header.appTitle') }}
+    </h1>
 
     <div class="actions">
       <div class="navigation-buttons">
         <RouterLink to="/">
-          <UiButton>Page 1</UiButton>
+          <UiButton>{{ t('header.navigation.page1') }}</UiButton>
         </RouterLink>
 
         <RouterLink to="/about">
-          <UiButton>Page 2</UiButton>
+          <UiButton>{{ t('header.navigation.page2') }}</UiButton>
         </RouterLink>
       </div>
 
       <UserAvatar />
 
-      <UiSelect v-model="selectedLanguage" :options="languages" />
+      <UiSelect
+        v-model="locale"
+        :options="languages"
+        @update:model-value="switchLanguage"
+      />
     </div>
   </header>
 </template>
@@ -24,14 +33,22 @@
 import UiButton from '@/components/common/UiButton.vue'
 import UiSelect from '@/components/common/UiSelect.vue'
 import UserAvatar from '@/components/header/userAvatar/UserAvatar.vue'
-import { ref } from 'vue'
+import { useUpdateTranslations } from '@/composables/useUpdateTranslations'
+import { loadTranslationsFromLocalStorage } from '@/plugins/i18n'
+import { useI18n } from 'vue-i18n'
 
 const languages = [
   { value: 'en', label: 'English' },
   { value: 'es', label: 'Spanish' },
 ]
+const { t, locale } = useI18n()
+const { updateTranslation } = useUpdateTranslations()
 
-const selectedLanguage = ref(languages[0].value)
+const switchLanguage = (language: string) => {
+  locale.value = language
+  localStorage.setItem('locale', locale.value)
+  loadTranslationsFromLocalStorage()
+}
 </script>
 
 <style scoped>

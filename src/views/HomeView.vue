@@ -1,33 +1,14 @@
 <template>
   <div>
     <PageParagraph
-      v-for="paragraph in paragraphs"
-      :key="paragraph.title"
-      :title="paragraph.title"
-      :text="paragraph.text"
+      v-for="(paragraph, key) in messages.en.page1"
+      :key="`page1.${key}`"
+      :translation-path="`page1.${key}`"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 import PageParagraph from '@/components/pageParagraph/PageParagraph.vue'
-
-const paragraphs = [
-  {
-    title: 'Title 1',
-    text: 'lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum lorem ipsumlorem ipsumlorem ipsum',
-  },
-  {
-    title: 'Title 2',
-    text: 'lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum lorem ipsumlorem ipsumlorem ipsum',
-  },
-  {
-    title: 'Title 3',
-    text: 'lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum lorem ipsumlorem ipsumlorem ipsum',
-  },
-  {
-    title: 'Title 4',
-    text: 'lorem ipsum lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum lorem ipsumlorem ipsumlorem ipsum',
-  },
-]
+import { messages } from '@/constants/locales'
 </script>

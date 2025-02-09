@@ -1,7 +1,7 @@
-import type { Languages, Messages } from '@/constants/types'
 import { reactive } from 'vue'
 
-// locales.ts
+import type { Languages, Messages } from '@/constants/types'
+
 export const messages: Record<Languages, Messages> = reactive({
   en: {
     header: {

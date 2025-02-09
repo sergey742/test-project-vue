@@ -30,6 +30,9 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 import UiButton from '@/components/common/UiButton.vue'
 import UiSelect from '@/components/common/UiSelect.vue'
 import UserAvatar from '@/components/header/userAvatar/UserAvatar.vue'
@@ -37,8 +40,6 @@ import { useUpdateTranslations } from '@/composables/useUpdateTranslations'
 import type { IUser } from '@/constants/types'
 import { loadTranslationsFromLocalStorage } from '@/plugins/i18n'
 import apiClient from '@/services/axios'
-import { onMounted, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 const userData = ref<IUser>()
 

@@ -18,7 +18,9 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+
 import type { PageParagraphProps } from './types'
+
 import { useUpdateTranslations } from '@/composables/useUpdateTranslations'
 
 defineProps<PageParagraphProps>()

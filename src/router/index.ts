@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import HomeView from '../views/HomeView.vue'
+
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import AboutView from '@/views/AboutView.vue'
 import { loadTranslationsFromLocalStorage } from '@/plugins/i18n'

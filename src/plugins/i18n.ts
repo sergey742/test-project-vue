@@ -1,5 +1,5 @@
-// i18n.ts
 import { createI18n } from 'vue-i18n'
+
 import { messages } from '@/constants/locales'
 import type { Languages, Messages } from '@/constants/types'
 

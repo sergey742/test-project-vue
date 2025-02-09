@@ -12,6 +12,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+
 import type { UserAvatarProps } from './types'
 
 const props = defineProps<UserAvatarProps>()

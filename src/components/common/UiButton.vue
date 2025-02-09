@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+
 import type { ButtonEmits, ButtonProps } from './types'
 
 const props = withDefaults(defineProps<ButtonProps>(), {

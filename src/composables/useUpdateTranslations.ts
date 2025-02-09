@@ -1,5 +1,6 @@
-import { SUPPORTED_LANGUAGES } from '@/constants/supportedLanguages'
 import { useI18n } from 'vue-i18n'
+
+import { SUPPORTED_LANGUAGES } from '@/constants/supportedLanguages'
 
 export function useUpdateTranslations() {
   const { locale } = useI18n()

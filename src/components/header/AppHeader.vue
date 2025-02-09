@@ -18,7 +18,7 @@
         </RouterLink>
       </div>
 
-      <UserAvatar />
+      <UserAvatar :user="userData" />
 
       <UiSelect
         v-model="locale"
@@ -34,8 +34,13 @@ import UiButton from '@/components/common/UiButton.vue'
 import UiSelect from '@/components/common/UiSelect.vue'
 import UserAvatar from '@/components/header/userAvatar/UserAvatar.vue'
 import { useUpdateTranslations } from '@/composables/useUpdateTranslations'
+import type { IUser } from '@/constants/types'
 import { loadTranslationsFromLocalStorage } from '@/plugins/i18n'
+import apiClient from '@/services/axios'
+import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+
+const userData = ref<IUser>()
 
 const languages = [
   { value: 'en', label: 'English' },
@@ -49,6 +54,19 @@ const switchLanguage = (language: string) => {
   localStorage.setItem('locale', locale.value)
   loadTranslationsFromLocalStorage()
 }
+
+const fetchUser = async () => {
+  try {
+    const { data: user } = await apiClient.get<IUser>('/users/1')
+    userData.value = user
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+onMounted(() => {
+  fetchUser()
+})
 </script>
 
 <style scoped>

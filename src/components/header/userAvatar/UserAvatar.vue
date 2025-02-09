@@ -1,8 +1,30 @@
 <template>
-  <div class="avatar">
-    <label>RG</label>
+  <div class="avatar" @click="showAvatar = !showAvatar">
+    <img
+      v-if="user && showAvatar"
+      class="image"
+      :src="user.avatar"
+      alt="avatar"
+    />
+    <label v-else>{{ userFirstLetters }}</label>
   </div>
 </template>
+
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import type { UserAvatarProps } from './types'
+
+const props = defineProps<UserAvatarProps>()
+
+const showAvatar = ref(false)
+
+const userFirstLetters = computed(() => {
+  if (!props.user) return 'N/A'
+
+  const { first_name, last_name } = props.user
+  return `${first_name[0]}${last_name[0]}`
+})
+</script>
 
 <style scoped>
 .avatar {
@@ -16,5 +38,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: fill;
 }
 </style>

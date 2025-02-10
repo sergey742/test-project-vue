@@ -82,4 +82,21 @@ const buttonClass = computed(() => [
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+@media (max-width: 768px) {
+  .button--small {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+
+  .button--medium {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .button--large {
+    font-size: 14px;
+    padding: 7px 15px;
+  }
+}
 </style>

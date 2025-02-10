@@ -30,11 +30,21 @@ const onChange = (event: Event) => {
 
 <style scoped>
 select {
-  padding: 0.5rem;
-  font-size: 1rem;
+  padding: 8px;
+  font-size: 16px;
   border: 1px solid var(--color-border);
   border-radius: 4px;
   width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 70px;
+}
+
+@media (max-width: 768px) {
+  select {
+    font-size: 12px;
+    padding: 6px;
+  }
 }
 
 select:disabled {

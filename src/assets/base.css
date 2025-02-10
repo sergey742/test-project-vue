@@ -29,6 +29,11 @@
   --button-secondary-active: #349c89;
 }
 
+/* root styles */
+:root {
+  scrollbar-width: thin;
+}
+
 *,
 *::before,
 *::after {

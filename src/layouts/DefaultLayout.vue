@@ -16,4 +16,10 @@ import AppHeader from '@/components/header/AppHeader.vue'
 .main {
   padding: 15px 40px;
 }
+
+@media (max-width: 768px) {
+  .main {
+    padding: 10px;
+  }
+}
 </style>

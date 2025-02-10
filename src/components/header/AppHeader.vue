@@ -1,6 +1,7 @@
 <template>
   <header class="header">
     <h1
+      class="title"
       contenteditable
       @input="updateTranslation('header.appTitle', $event)"
     >
@@ -80,6 +81,12 @@ onMounted(() => {
   justify-content: space-between;
 }
 
+.title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .actions {
   display: flex;
   align-items: center;
@@ -90,5 +97,25 @@ onMounted(() => {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .header {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  .navigation-buttons {
+    gap: 5px;
+  }
+
+  .title {
+    font-size: 18px;
+    min-width: 70px;
+  }
 }
 </style>

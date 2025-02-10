@@ -30,6 +30,7 @@ const userFirstLetters = computed(() => {
 <style scoped>
 .avatar {
   border-radius: 50%;
+  min-width: 40px;
   width: 40px;
   height: 40px;
   border: 1px solid var(--color-border);

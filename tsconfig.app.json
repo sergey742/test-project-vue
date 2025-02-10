@@ -9,7 +9,6 @@
       "@/*": ["./src/*"],
       "@/components/*": ["./src/components/*"],
       "@/views/*": ["./src/views/*"],
-      "@/stores/*": ["./src/stores/*"],
       "@/composables/*": ["./src/composables/*"],
       "@/constants/*": ["./src/constants/*"],
       "@/plugins/*": ["./src/plugins/*"]
